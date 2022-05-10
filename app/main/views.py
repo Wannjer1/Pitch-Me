@@ -11,6 +11,10 @@ def index():
 def profile():
     return render_template('profile.html')
 
+@main.route('/pitches')
+def pitch():
+    return render_template('pitch.html')
+
 # added a dynamic route
 # @app.route('/movie/<int:movie_id')
 # def movie(movie_id):
