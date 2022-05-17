@@ -1,8 +1,53 @@
-{% extends 'base.html'%} {% import 'macros.html' as macro%}
+{% extends 'base.html'%} {% block content %}
+<div class="container-fluid welcome-page">
+  <div
+    class="container-fluid text-center h-70 p-3"
+    style="background-color: #f85a3e"
+  >
+    <div class="p-3" style="color: white">
+      <hr />
+      <h1>CREATE A PITCH TODAY!</h1>
+      <hr />
+      <hr />
+      <h3>
+        Do you have an idea? <br />Create a pitch today for any category of your
+        choice. <br />
+        You can also comment on any pitch.
+      </h3>
+    </div>
+    <div class="col-md-12 container">
+      {% if current_user.is_authenticated%}
 
-<!-- Content block -->
-{% block content %}
-
-<!-- desired body code for the index page -->
+      <a
+        id="start"
+        class="btn btn-danger animated infinite flash"
+        href="{{url_for('main.new_pitch')}}"
+        >Pitch away!</a
+      >
+      {% else %}
+      <a
+        id="start"
+        class="btn btn-danger animated infinite flash"
+        href="{{url_for('auth.login')}}"
+        >Pitch away!</a
+      >
+      {% endif %}
+    </div>
+    <hr />
+  </div>
+  <div class="container d-flex">
+    {% for pitch in pitches %}
+    <div>
+      <h3 style="color: #f85a3e">Category: {{pitch.category}}</h3>
+      <hr />
+      <h4>Description: {{ pitch.description }}</h4>
+      <h6>Posted by: {{current_user.username}}.</h6>
+      <div class="d-flex text-align-center container">
+        <a href="{{url_for('main.new_comment', pitch_id=pitch.id)}}">Comment</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 
 {% endblock %}
