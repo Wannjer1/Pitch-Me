@@ -101,8 +101,6 @@ class Comment(db.Model):
     def get_comment(cls,id):
         comment = Comment.query.filter_by(pitch_id=id).all()
         return comment
-
-
     
     def __repr__(self):
         return f"Comment : id: {self.id} comment: {self.description}"

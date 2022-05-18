@@ -1,5 +1,5 @@
 import os
-import re
+
 
 class Config:
     '''General configuration parent class'''
@@ -21,9 +21,11 @@ class ProdConfig(Config):
     '''Production configuration child class
     Args: 
         Config: The parent configuration class with General configuration settings'''
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-    if SQLALCHEMY_DATABASE_URI.startswith('postgres://'):
-        SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace('postgres://', 'postgresql://',1)
+    # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:bioactive@localhost/pitchme'
+    # if SQLALCHEMY_DATABASE_URI.startswith('postgres://'):
+    #     SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace('postgres://', 'postgresql://',1)
     # pass
 
 class DevConfig(Config):

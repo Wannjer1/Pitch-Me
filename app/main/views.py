@@ -138,11 +138,11 @@ def new_comment(pitch_id):
 @main.route('/pitch/upvote/<int:pitch_id>/upvote', methods = ['GET', 'POST'])
 @login_required
 def upvote(pitch_id):
-    pitch = Pitch.query.get(pitch_id)
-    user = current_user
-    pitch_upvotes = Upvote.query.filter_by(pitch_id= pitch_id)
     form = Upvoteform()
-    
+    pitch = Pitch.query.get(pitch_id)
+    pitch_upvotes = Upvote.query.filter_by(pitch_id= pitch_id)
+    user = current_user
+   
     if Upvote.query.filter(Upvote.user_id==user.id,Upvote.pitch_id==pitch_id).first():
         return  redirect(url_for('main.index'))
 
