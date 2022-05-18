@@ -22,8 +22,8 @@ class ProdConfig(Config):
     Args: 
         Config: The parent configuration class with General configuration settings'''
     # SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-    # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:bioactive@localhost/pitchme'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL').replace("://", "ql://", 1)
+    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:bioactive@localhost/pitchme'
     # if SQLALCHEMY_DATABASE_URI.startswith('postgres://'):
     #     SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace('postgres://', 'postgresql://',1)
     # pass
