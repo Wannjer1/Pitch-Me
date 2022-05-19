@@ -18,8 +18,8 @@ class User(UserMixin,db.Model):
     photos = db.relationship('PhotoProfile',backref = 'user',lazy = 'dynamic')
     pitch_user = db.relationship('Pitch', backref='user', lazy='dynamic')
     comment_user = db.relationship('Comment', backref = 'user', lazy = 'dynamic')
-    upvotes_user = db.relationship('Upvote', backref = 'user', lazy = 'dynamic')
-    downvotes_user = db.relationship('Downvote', backref = 'user', lazy = 'dynamic')
+    # upvotes_user = db.relationship('Upvote', backref = 'user', lazy = 'dynamic')
+    # downvotes_user = db.relationship('Downvote', backref = 'user', lazy = 'dynamic')
 
     
 
