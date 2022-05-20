@@ -35,13 +35,14 @@
     </div>
     <hr />
   </div>
-  <div class="container d-flex">
+  <div class="container w-50 d-flex">
     {% for pitch in pitches %}
     <div>
       <h3 style="color: #f85a3e">Category: {{pitch.category}}</h3>
       <hr />
       <h4>Description: {{ pitch.description }}</h4>
       <h6>Posted by: {{current_user.username}}.</h6>
+      <hr />
       <div class="d-flex text-align-center container">
         <a href="{{url_for('main.new_comment', pitch_id=pitch.id)}}">Comment</a>
       </div>

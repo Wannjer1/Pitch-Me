@@ -1,41 +1,43 @@
 {% import 'bootstrap/wtf.html' as wtf %} {%block content %}
+ {% block navbar %} {% include 'navbar.html' %} {% endblock %}
 
-<div class="row">
-  <div class="card">
-    <div class="card-body text-center">
+<div class="container">
+  <div class="container">
+
       <h4><a>Pitch Title:{{pitch.title}}</a></h4>
       <h5 class="card-text text-center">
         Pitch Description:{{pitch.description}}.
       </h5>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
       <div class="jumbotron">{{wtf.quick_form(form)}}</div>
     </div>
+  
   </div>
+  </div>
+
+  
 
   <hr />
   <hr />
   <div class="container">
-    <div class="col-md-12">
-      <h4
+   
+      <h2
         style="color: brown; text-align: center; text-underline-position: below"
       >
         Comments
-      </h4>
-    </div>
+      </h2>
+  </div>
 
     {% if all_comments %} {% for comment in all_comments %}
-    <div class="row text-center">
+    <div class="container text-center">
       <a><p style="color: brown">{{ comment.description }}</p></a>
       <small style="color: brown"> posted by {{comment.user.username}}</small>
     </div>
+    <hr>
     {% endfor %} {% else %}
 
     <h3>This post does not does not have any comments yet !</h3>
     {%endif%}
+    
   </div>
 </div>
 
